@@ -1,0 +1,20 @@
+<div>
+    <h1 class="display-4">Actors list</h1>
+    <br><br>
+    <table class="table">
+        <thead class="thread-dark">
+          <tr>
+            <th scope="col">Full name</th>
+            <th scope="col">Birth year</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        
+        <tr *ngFor="let actor of actorArr">
+            <td>{{actor.name}}</td>
+            <td>{{actor.bYear}}</td>
+            <td><button class="btn btn-danger" (click)="deleteActorById(actor)">Delete</button></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,44 @@
+
+<div class="container-fulid">
+  <nav class="navbar navbar-dark bg-dark">
+    <h2 class="text-white">Text to speech app</h2>  
+  </nav>  
+
+  <div class="form-group" *ngIf='!audioPath'>
+    <label class="">Your text in English:</label>
+    <input type="text" class="form-control" [(ngModel)]="inputText">
+    <br><br>
+    <label class="">Select a <b>Primary</b> Language: </label>
+    
+    <div  *ngFor="let x of langToTranslate">
+      <label class="form-control"><input type="radio" value="{{x.val}}" [(ngModel)]="selectedLang" name="radLangOption"> {{x.lang}}</label>
+    </div>
+    <label class="">Select a <b>Secondary</b> Language: </label>
+    
+    <div  *ngFor="let x of langToTranslate">
+      <label class="form-control"><input type="radio" value="{{x.val}}" [(ngModel)]="selectedLang2" name="radLangOption2"> {{x.lang}}</label>
+    </div>
+
+    <button (click)="submitText()" class="btn btn-primary form-control">Submit text for translation</button>
+  </div>
+  
+  <div *ngIf='audioPath' >
+    <h5> Translation result</h5>
+    <p>Output audio for : '{{inputText}}' ({{translatedText}} in {{translatedLangLbl}})</p>
+    <audio controls class="form-control">
+      <source [(ngModel)]="audioPath" src="{{audioPath}}" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div *ngIf='audioPath2' >
+    <h5> Translation result</h5>
+    <p>Output audio for : '{{inputText}}' ({{translatedText2}} in {{translatedLangLbl2}})</p>
+    <audio controls class="form-control">
+      <source [(ngModel)]="audioPath2" src="{{audioPath2}}" type="audio/mpeg">
+    </audio>
+    <br>
+    <button class="form-control btn btn-primary" (click)="refreshPage()"> Generate again again </button>
+  </div>
+</div>
+
+

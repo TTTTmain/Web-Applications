@@ -1,0 +1,48 @@
+<div>
+    <h1 class="display-4">Movie list</h1>
+    <br><br>
+    <div class="form-group">
+        <label>Movie to manage</label>
+        <select id="selMovie"class="form-control" [(ngModel)]="selectedMovieId">
+            <option *ngFor="let movie of movieArr" value="{{movie._id}}">{{movie.name}}</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" (click)="getMovie()"> Manage actors </button>
+
+    <div *ngIf="showSection">
+        <h2 class="display-4" >Actors in: {{movieToUpdate.name}}</h2>
+        <br><br>
+        <div *ngIf="movieToUpdate.actors.length == 0">
+            <p> No actor in this movie</p>
+        </div>
+
+        <table class="table" *ngIf="movieToUpdate.actors.length != 0">
+            <thead class="thread-dark">
+              <tr>
+                <th scope="col">Actor name</th>
+                <th scope="col">Actor year</th>
+                <th scope="col"> </th>
+              </tr>
+            </thead>
+            
+            <tr *ngFor="let actor of movieToUpdate.actors">
+                <td>{{actor.name}}</td>
+                <td>{{actor.bYear}}</td>
+                <td><button class="btn btn-danger" (click)="removeActorFromMovie(actor)">Delete</button></td>
+            </tr>
+        </table>
+
+        <div class="form-group">
+            <label>Actor to add</label>
+            <select id="selMovie"class="form-control" [(ngModel)]="actorToAddId">
+                <option *ngFor="let actor of actorArr" value="{{actor._id}}">{{actor.name}}</option>
+            </select>
+            <br>
+            <div class="row">
+                <div class="col"><button class="btn btn-success" (click)="addActorToMovie()">Add actor to movie</button></div>
+                <div class="col"><button class="btn btn-danger" (click)="closeSection()">Close edit actor section</button></div>
+            </div>  
+        </div>
+    </div>
+</div>

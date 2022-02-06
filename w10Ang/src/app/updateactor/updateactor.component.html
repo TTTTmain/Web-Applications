@@ -1,0 +1,33 @@
+<div>
+    <h1 class="display-4">Update actor</h1>
+    <br><br>
+    <table class="table">
+        <thead class="thread-dark">
+          <tr>
+            <th scope="col">Full name</th>
+            <th scope="col">Birth year</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        
+        <tr *ngFor="let actor of listToUpdateArr">
+            <td>{{actor.name}}</td>
+            <td>{{actor.bYear}}</td>
+            <td><button class="btn btn-primary" (click)="onSelectToUpdate(actor)">Update</button></td>
+        </tr>
+    </table>
+    <br><br>
+    
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Actor name</label>
+        <input type="email" class="form-control" id="tftFName" [(ngModel)]="actorName">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Birth year</label>
+        <input type="email" class="form-control" id="tftBYear" [(ngModel)]="actorBYear">
+    </div>
+
+    <button class="btn btn-success" (click)="onUpdateActor()">Update actor</button>
+</div>  

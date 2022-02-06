@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="books.css">
+    </head>
+
+    <body id="purpleBackground">
+        <h1>
+            <img src="logo.png" width="200" height="100"></h1><br>
+            Welcome to Books
+
+            <h2>
+                Enter new Book: 
+            </h2>
+            <div class="container">
+                <form action="postnewbook" method="POST">
+                    <lable>Title</lable>
+                    <input type="text" name="title" /> <br>
+                    <label>Author</label>
+                    <input type="text" name="author" /> <br>
+                    <label>Topic</label>
+                    <input type="text" name="topic" /> <br>
+                    <label>Cost ($)</label> 
+                    <input type="number" name="cost"  step="0.01"/> <br>
+                    <button>Submit</button>
+                </form>
+            </div>
+                
+            <br><br>
+            <a href="/">Home</a>
+        </h1>
+    </body>
+</html>

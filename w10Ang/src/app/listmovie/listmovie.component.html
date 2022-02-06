@@ -1,0 +1,20 @@
+<div>
+    <h1 class="display-4">Movie list</h1>
+    <br><br>
+    <table class="table">
+        <thead class="thread-dark">
+          <tr>
+            <th scope="col">Movie name</th>
+            <th scope="col">Movie year</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        
+        <tr *ngFor="let movie of movieArr">
+            <td>{{movie.name}}</td>
+            <td>{{movie.bYear}}</td>
+            <td><button class="btn btn-danger" (click)="onDeleteMovie(movie)">Delete</button></td>
+        </tr>
+    </table>
+</div>

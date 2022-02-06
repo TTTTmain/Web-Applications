@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="books.css">
+    </head>
+
+    <body id="purpleBackground">
+        <h1>
+            <img src="logo.png" width="200" height="100"></h1><br>
+            Welcome to Books
+            <table id="t01">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Topic</th>
+                    <th>Date of Publication</th>
+                    <th>Summary</th>
+                </tr>
+                <% for(let i=0; i<books.length;i++) { %>
+                    <tr>
+                        <td><%= books[i].title %></td>
+                        <td><%= books[i].author %></td>
+                        <td><%= books[i].topic %></td>
+                        <td><%= books[i].published %></td>
+                        <td><%= books[i].summary %></td>
+                    </tr>
+                <%} %>
+            </table>
+            <br><br>
+            <a href="/getaddbook">Add New Book</a><br>
+            <a href="/updatebytitle">Update Book by Title</a><br>
+            <a href="/deletebytopic">Delete Book by Topic</a><br>
+            <a href="/">Home</a>
+        </h1>
+    </body>
+</html>
